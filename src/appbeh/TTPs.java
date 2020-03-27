@@ -2,11 +2,12 @@ package appbeh;
 
 import java.util.Arrays;
 /*
- * @author ashrafi
+  @author ashrafi
  */
 public class TTPs {
     //public String line;
     public static int T1156(String S[],int length){ //T1156-1 & T1156-2 (Persistence)
+        //it has three subparts
         //System.err.println(Arrays.toString(S));
         if(length==7){ //line containing "File:" found
             String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
@@ -38,7 +39,8 @@ public class TTPs {
         return 0; //if no hard match found to this TTP
     }
     
-     public static int T1148(String S[],int length){ 
+     public static int T1148(String S[],int length){
+         //it has two subparts
          if(length==7){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              

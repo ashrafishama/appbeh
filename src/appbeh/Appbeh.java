@@ -3,15 +3,15 @@ import java.util.*;
 import java.io.*;
 /*
   @author ashrafi
- */
+*/
 public class Appbeh extends TTPs {
     public static void main(String[] args) throws IOException {
        int[] TTPfrequency = new int[39]; //each index for distinct TTP appearance count
        Arrays.fill(TTPfrequency, 0); //initial frequency '0'
        TTPs ttps = new TTPs();
        ArrayList<ArrayList<Integer>> TTPmatcher = new ArrayList<ArrayList<Integer>>(); //39 entries for 39 TTPs for matching parts
-       TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1, 2, 3))); //3 subpart for TTP T1156
-       
+       TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1, 2, 3))); //3 subparts for TTP T1156, index 0
+       TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1, 2))); //3 subparts for TTP T1485-5, index 1       
        String filename = "chrome.txt";
        //String filename = "test.txt";
        ArrayList content = fileRead(filename);
@@ -39,7 +39,7 @@ public class Appbeh extends TTPs {
         for(int i=0;i<data.size();i++){
             String temp = (String) data.get(i);
             String[] parts = temp.split("\\s+"); //number of parts in each line
-            //the following 7 lines will be repeated for each TTP
+            //the following 9 lines will be repeated for each TTP
             int prev_match_1 = 0;
             int match_1 = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             if(match_1!=0 && match_1>prev_match_1){//if the found sequence is logically after the previous matches
@@ -59,12 +59,14 @@ public class Appbeh extends TTPs {
     }
     
     public static boolean allPartsMatched(ArrayList<ArrayList<Integer>> ttpMatcher,int TTPNo){
-        if (Collections.frequency(ttpMatcher.get(TTPNo-1), 0) == ttpMatcher.get(TTPNo-1).size()){ //TTPNo-1 is the index in the AL
-            ttpMatcher.get(0).set(0,1);
-            ttpMatcher.get(0).set(1,2);
-            ttpMatcher.get(0).set(2,3);
-            return true;
-        }        
+        if(TTPNo==1){
+            if (Collections.frequency(ttpMatcher.get(TTPNo-1), 0) == ttpMatcher.get(TTPNo-1).size()){ //TTPNo-1 is the index in the AL
+                ttpMatcher.get(0).set(0,1);
+                ttpMatcher.get(0).set(1,2);
+                ttpMatcher.get(0).set(2,3);
+                return true; //all subparts matched for some TTP, for TTPNo == 1, T1156 it is
+            }        
+        }
         return false;
     }
 }
