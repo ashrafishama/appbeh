@@ -1,0 +1,120 @@
+File:   chrome   open   /etc/ld.so.preload   Total_Times:2
+File:   chrome   open   /etc/*   Total_Times:167
+File:   chrome   open   /lib/*   Total_Times:58
+File:   chrome   read   /lib/*   Total_Times:40
+File:   chrome   open   /usr/lib/*   Total_Times:209
+File:   chrome   read   /usr/lib/*   Total_Times:181
+File:   chrome   open   /dev/*   Total_Times:869
+File:   chrome   read   /dev/*   Total_Times:3907
+File:   chrome   open   /proc/filesystems   Total_Times:112
+File:   chrome   read   /proc/filesystems   Total_Times:73
+File:   chrome   open   /sys/*   Total_Times:2188
+File:   chrome   read   /sys/*   Total_Times:2078
+File:   chrome   open   /opt/google/chrome/*   Total_Times:18
+File:   chrome   read   /etc/*   Total_Times:148
+File:   chrome   open   /home/syssec/.*   Total_Times:556
+File:   chrome   read   /home/syssec/.*   Total_Times:57
+File:   chrome   write   /proc/7167/oom_score_adj   Total_Times:14
+Clone:   pid:7167   chrome   ppid:1628   Total_Times:31
+File:   chrome   dup   /dev/*   Total_Times:224
+File:   chrome   dup   NA   Total_Times:594
+File:   chrome   open   /usr/share/*   Total_Times:392
+File:   chrome   read   /usr/share/*   Total_Times:74
+File:   chrome   read   /opt/google/chrome/*   Total_Times:6
+Network:   chrome   unix   sendmsg   Total_Bytes:327950   Total_Times:1181
+Clone:   pid:7172   chrome   ppid:7167   Total_Times:3
+File:   chrome   read   NA   Total_Times:17162
+File:   chrome   openat   /proc   Total_Times:2
+Network:   chrome   unix   sendto   Total_Bytes:11976133   Total_Times:8485
+File:   chrome   write   NA   Total_Times:17014
+File:   chrome   open   /var/*   Total_Times:87
+File:   chrome   open   /usr/*   Total_Times:11
+Network:   chrome   unix   connect   Total_Times:13
+Network:   chrome   unix   recvfrom   Total_Bytes:38840   Total_Times:12
+File:   chrome   open   /run/user/1000/dconf/user   Total_Times:1
+File:   chrome   read   ffff9f7008c32000->ffff9f7008c31400 /var/run/dbus/system_bus_socket   Total_Times:2
+File:   chrome   write   /dev/*   Total_Times:14
+File:   chrome   read   ffff9f704ddd3000->ffff9f704ddd6800   Total_Times:2
+File:   chrome   read   ffff9f704ddd5400->ffff9f704ddd0800   Total_Times:2
+File:   chrome   read   ffff9f704ddd7800->ffff9f704ddd4c00   Total_Times:2
+Clone:   pid:7203   chrome   ppid:7192   Total_Times:7
+Network:   chrome   netlink   sendto   Total_Bytes:362   Total_Times:18
+Network:   chrome   netlink   recvfrom   Total_Bytes:86016   Total_Times:10
+Network:   chrome   ipv6   connect   Total_Times:29
+Network:   chrome   ipv4   sendto   Total_Bytes:6112986   Total_Times:11206
+Network:   chrome   ipv4   connect   Total_Times:43
+Clone:   pid:7176   chrome   ppid:7172   Total_Times:19
+File:   chrome   openat   <UNKNOWN>   Total_Times:38
+File:   chrome   openat   <UNKNOWN>self/fd   Total_Times:19
+Clone:   pid:7214   chrome   ppid:7176   Total_Times:144
+Network:   chrome   ipv4   recvfrom   Total_Bytes:13678   Total_Times:365
+File:   chrome   read   192.168.129.142:48492->172.217.9.163:443   Total_Times:8
+File:   chrome   read   192.168.129.142:48494->172.217.9.163:443   Total_Times:4
+Network:   chrome   ipv6   sendto   Total_Bytes:18446304   Total_Times:12114
+File:   chrome   read   /var/*   Total_Times:15
+Kill:   chrome   pid:7167   kill   pid=1771(ibus-daemon) sig=0
+Kill:   chrome   pid:7167   kill   pid=1771(ibus-daemon) sig=0
+File:   chrome   read   192.168.129.142:33020->172.217.1.131:443   Total_Times:8
+File:   chrome   dup   /home/syssec/.*   Total_Times:15
+File:   chrome   read   192.168.129.142:57924->172.217.1.141:443   Total_Times:21
+File:   chrome   read   ffff9f70088db000->ffff9f70088de400 /var/run/dbus/system_bus_socket   Total_Times:2
+Network:   chrome   ipv4   sendmsg   Total_Bytes:193736   Total_Times:655
+File:   chrome   read   192.168.129.142:56334->172.217.9.132:443   Total_Times:165
+Network:   chrome   file   sendto   Total_Bytes:523840   Total_Times:651
+Network:   chrome   file   sendmsg   Total_Bytes:16248   Total_Times:49
+File:   chrome   write   /home/syssec/.*   Total_Times:42
+Kill:   chrome   pid:7176   kill   pid=46 sig=9(SIGKILL)
+Kill:   chrome   pid:7176   kill   pid=50 sig=9(SIGKILL)
+File:   chrome   read   192.168.129.142:34968->216.58.194.35:443   Total_Times:17
+Network:   chrome   ipv6   sendmsg   Total_Bytes:35656   Total_Times:101
+File:   chrome   read   192.168.129.142:50976->216.58.194.142:443   Total_Times:204
+Kill:   chrome   pid:7176   kill   pid=57 sig=9(SIGKILL)
+Kill:   chrome   pid:7176   kill   pid=61 sig=9(SIGKILL)
+File:   chrome   open   /run/udev/data/*   Total_Times:2047
+File:   chrome   read   /run/udev/data/*   Total_Times:392
+File:   chrome   read   192.168.129.142:37332->216.58.194.131:443   Total_Times:9
+File:   chrome   read   192.168.129.142:45088->172.217.2.246:443   Total_Times:104
+File:   chrome   read   192.168.129.142:56956->216.58.193.138:443   Total_Times:14
+File:   chrome   read   192.168.129.142:48508->172.217.9.163:443   Total_Times:30
+File:   chrome   read   192.168.129.142:33030->172.217.9.161:443   Total_Times:43
+File:   chrome   read   192.168.129.142:33032->172.217.9.161:443   Total_Times:4
+File:   chrome   read   192.168.129.142:33034->172.217.9.161:443   Total_Times:3
+File:   chrome   read   192.168.129.142:34774->172.217.9.174:443   Total_Times:9
+File:   chrome   read   192.168.129.142:36040->172.217.9.14:443   Total_Times:10
+File:   chrome   read   192.168.129.142:50312->172.217.9.2:443   Total_Times:12
+File:   chrome   read   192.168.129.142:58164->172.217.2.227:443   Total_Times:13
+File:   chrome   read   192.168.129.142:58162->172.217.2.227:443   Total_Times:3
+File:   chrome   read   192.168.129.142:50090->172.217.1.130:443   Total_Times:20
+File:   chrome   read   192.168.129.142:57580->216.58.194.110:443   Total_Times:9
+Kill:   chrome   pid:7176   kill   pid=107 sig=9(SIGKILL)
+File:   chrome   read   192.168.129.142:39594->216.58.193.134:443   Total_Times:5
+File:   chrome   read   192.168.129.142:51726->209.85.165.9:443   Total_Times:9
+File:   chrome   read   192.168.129.142:51728->209.85.165.9:443   Total_Times:10
+File:   chrome   read   192.168.129.142:39272->172.217.14.161:443   Total_Times:13
+File:   chrome   read   192.168.129.142:59862->172.217.2.226:443   Total_Times:18
+File:   chrome   read   192.168.129.142:60156->172.217.131.73:443   Total_Times:17
+File:   chrome   read   192.168.129.142:60158->172.217.131.73:443   Total_Times:134
+File:   chrome   read   ffff9f701df41800->ffff9f701df44c00   Total_Times:2
+File:   chrome   read   ffff9f701df41400->ffff9f701df46c00   Total_Times:2
+File:   chrome   read   ffff9f6ffea0b800->ffff9f6ffea0f800   Total_Times:2
+File:   chrome   read   192.168.129.142:38980->172.217.9.1:443   Total_Times:10
+Kill:   chrome   pid:7167   kill   pid=7608(exe) sig=9(SIGKILL)
+File:   chrome   read   192.168.129.142:44578->172.217.6.130:443   Total_Times:7
+Kill:   chrome   pid:7176   kill   pid=148 sig=9(SIGKILL)
+Kill:   chrome   pid:7176   kill   pid=147 sig=9(SIGKILL)
+File:   chrome   read   192.168.129.142:42734->13.107.7.190:443   Total_Times:12
+File:   chrome   read   192.168.129.142:42736->13.107.7.190:443   Total_Times:5
+File:   chrome   read   192.168.129.142:40026->23.46.226.11:443   Total_Times:19
+File:   chrome   read   192.168.129.142:48176->23.63.255.160:443   Total_Times:6
+File:   chrome   read   192.168.129.142:35396->23.63.255.186:443   Total_Times:5
+File:   chrome   read   192.168.129.142:40028->23.46.226.11:443   Total_Times:3
+File:   chrome   read   192.168.129.142:36056->23.76.192.232:443   Total_Times:22
+File:   chrome   read   192.168.129.142:40036->23.46.226.11:443   Total_Times:3
+File:   chrome   read   192.168.129.142:40034->23.46.226.11:443   Total_Times:3
+File:   chrome   read   192.168.129.142:36058->23.76.192.232:443   Total_Times:5
+File:   chrome   read   192.168.129.142:40030->23.46.226.11:443   Total_Times:2
+File:   chrome   read   192.168.129.142:40032->23.46.226.11:443   Total_Times:2
+File:   chrome   read   192.168.129.142:40046->23.46.226.11:443   Total_Times:18
+File:   chrome   read   192.168.129.142:42830->23.67.157.76:443   Total_Times:7
+File:   chrome   open   /tmp/.com.google.Chrome.fEBp3t   Total_Times:1
+procexit   chrome   Total_Times:197
