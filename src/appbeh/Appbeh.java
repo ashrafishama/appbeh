@@ -15,9 +15,9 @@ public class Appbeh extends TTPs {
        //String filename = "chrome.txt";
        String filename = "test.txt";
        ArrayList content = fileRead(filename);
-       parser(content,ttps,TTPfrequency);
-       
-       
+       System.out.println("Initial Frequency " + TTPfrequency[0]); //of T1156, that is why index is '0'
+       parser(content,ttps,TTPfrequency,TTPmatcher);
+       System.out.println("Final Frequency " + TTPfrequency[0]); //of T1156, that is why index is '1'
        
     }
     
@@ -35,17 +35,18 @@ public class Appbeh extends TTPs {
     }
     
     //line parser (with delemeter)
-    public static void parser(ArrayList data,TTPs ttps,int[] ttpFrequency){
+    public static void parser(ArrayList data,TTPs ttps,int[] ttpFrequency,ArrayList<ArrayList<Integer>> TTPmatcher){
         for(int i=0;i<data.size();i++){
             String temp = (String) data.get(i);
             String[] parts = temp.split("\\s+");
             int match = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
-            //System.err.println("Matched " + match);
-            /*matchUpdater(data, 1, match);
-            if(allPartsMatched(data,1)){
+            //System.err.println("Matched " + match); // working now
+            matchUpdater(TTPmatcher, 1, match);
+            if(allPartsMatched(TTPmatcher,1)){
                 ttpFrequency[0]+=1;
-            }*/
+            }
         }
+        
         return;
     }
     
@@ -55,6 +56,9 @@ public class Appbeh extends TTPs {
     
     public static boolean allPartsMatched(ArrayList<ArrayList<Integer>> ttpMatcher,int TTPNo){
         if (Collections.frequency(ttpMatcher.get(TTPNo-1), 0) == ttpMatcher.get(TTPNo-1).size()){ //TTPNo-1 is the index in the AL
+            ttpMatcher.get(0).set(0,1);
+            ttpMatcher.get(0).set(1,2);
+            ttpMatcher.get(0).set(2,3);
             return true;
         }        
         return false;
