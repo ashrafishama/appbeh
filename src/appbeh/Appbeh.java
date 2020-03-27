@@ -40,13 +40,15 @@ public class Appbeh extends TTPs {
             String temp = (String) data.get(i);
             String[] parts = temp.split("\\s+"); //number of parts in each line
             //the following 7 lines will be repeated for each TTP
-            int match = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
-            if(match!=0){
-                matchUpdater(TTPmatcher, 1, match); //1 for T1156
+            int prev_match_1 = 0;
+            int match_1 = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
+            if(match_1!=0 && match_1>prev_match_1){//if the found sequence is logically after the previous matches
+                matchUpdater(TTPmatcher, 1, match_1); //1 for T1156
                 if(allPartsMatched(TTPmatcher,1)){ //checking if all subparts of T1156 are found
                     ttpFrequency[0]+=1; //updating T1156 frequency
                 }
             }
+            prev_match_1 = match_1;
         }
         
         return;
