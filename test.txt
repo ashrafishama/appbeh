@@ -1,0 +1,6 @@
+File:   sh   open   /root/.bash_profile   Total_Times:1
+File:   sh   dup   /root/.bash_profile   Total_Times:1
+File:   sh   write   /root/.bash_profile   Total_Times:1
+File:   sh   open   /root/.bashrc   Total_Times:1
+File:   sh   dup   /root/.bashrc   Total_Times:1
+File:   sh   write   /root/.bashrc   Total_Times:1
