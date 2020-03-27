@@ -11,3 +11,9 @@ File:   dd   7167   dup   /var/log/syslog   16:41:31.338350456   Total_Times:1
 File:   dd   7167   read   /dev/*   16:41:31.338350456   Total_Times:50591
 File:   dd   7167   write   /var/log/syslog   16:41:31.338350456 Total_Times:50591
 File:   dd   7167   write   /dev/zero   16:41:31.338350456   Total_Times:1
+File:   find   7167   read   /lib/*   16:41:31.338350456   Total_Times:18
+File:   find   7167   read   /proc/*   16:41:31.338350456   Total_Times:4
+File:   find   7167   read   /usr/share/*   16:41:31.338350456   Total_Times:4
+File:   cat   7167   write   /tmp/loot.txt   16:41:31.338350456   Total_Times:1
+File:   sed   7167   read   /lib/*   16:41:31.338350456   Total_Times:5
+File:   sed   7167   read   /proc/filesystems   16:41:31.338350456   Total_Times:2
