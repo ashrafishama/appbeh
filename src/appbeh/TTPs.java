@@ -8,9 +8,11 @@ public class TTPs {
     //public String line;
     //variables for aid in 'pattern checking'
     public static int[] TTP1083 = new int[6];
+    public static int[] TTP1030 = new int[2];
     
     TTPs(){
         Arrays.fill(TTP1083,1);
+        Arrays.fill(TTP1030,1);
     }
     
     public static int T1156(String S[],int length){ //T1156-1 & T1156-2 (Persistence)
@@ -91,6 +93,7 @@ public class TTPs {
                 }
              }
         }
+        //second subpart
         if(length==7 && TTP1083[1]==1){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              if(filePathParts.length>=2){//1st subpart check
@@ -101,6 +104,7 @@ public class TTPs {
                 }
              }
         }
+        //third subpart
         if(length==7 && TTP1083[2]==1){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              if(filePathParts.length>=2){//1st subpart check
@@ -111,6 +115,7 @@ public class TTPs {
                 }
              }
         }
+        //fourth subpart
         if(length==7 && TTP1083[3]==1){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              if(filePathParts.length>=2){//1st subpart check
@@ -120,6 +125,7 @@ public class TTPs {
                 }
              }
         }
+        //fifth subpart
         if(length==7 && TTP1083[4]==1){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              if(filePathParts.length>=2){//1st subpart check
@@ -130,6 +136,7 @@ public class TTPs {
                 }
              }
         }
+        //sixth subpart
         if(length==7 && TTP1083[5]==1){ //line containing "File:" found
              String[] filePathParts = S[4].split("/"); //the 4th index is the filepath
              if(filePathParts.length>=2){//1st subpart check
@@ -141,5 +148,41 @@ public class TTPs {
              }
         }
         return 0;
+     }
+     
+     public static int T1030(String S[],int length){
+         //four subparts
+         //first subpart
+         if(length==7 && S[0].equals("File:")){
+             String[] filePathParts = S[4].split("/");
+             if(S[3].equals("read") && filePathParts[1].equals("proc") && filePathParts[2].equals("filesystems")){
+                 return 1;
+             }
+
+         }
+         //second subpart
+         if(length==7 && S[0].equals("Network:")){
+             if(S[3].equals("unix") && S[4].equals("connect")){
+                 return 2;
+             }
+         }
+         //third subpart
+         if(length==7 && TTP1030[0]==1 && S[0].equals("File:")){
+             String[] filePathParts = S[4].split("/");
+             if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
+                 TTP1030[0] = 0;
+                 return 3;
+             }
+         }
+         //fourth subpart
+         if(length==7 && TTP1030[1]==1 && S[0].equals("File:")){
+             String[] filePathParts = S[4].split("/");
+             if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
+                 Arrays.fill(TTP1030,1);
+                 return 4;
+             }
+         }
+         
+         return 0;
      }
 }

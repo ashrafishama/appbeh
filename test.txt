@@ -17,3 +17,7 @@ File:   find   7167   read   /usr/share/*   16:41:31.338350456   Total_Times:4
 File:   cat   7167   write   /tmp/loot.txt   16:41:31.338350456   Total_Times:1
 File:   sed   7167   read   /lib/*   16:41:31.338350456   Total_Times:5
 File:   sed   7167   read   /proc/filesystems   16:41:31.338350456   Total_Times:2
+File: ls   7167 read /proc/filesystems   16:41:31.338350456 Total_Times:2
+Network: ls   7167 unix connect   16:41:31.338350456 Total_Times:3
+File: dd   7167 dup /tmp/victim-whole-file   16:41:31.338350456 Total_Times:1
+File: split   7167 dup /tmp/victim-whole-file   16:41:31.338350456 Total_Times:1
