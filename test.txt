@@ -1,6 +1,13 @@
-File:   sh   open   /root/.bash_profile   Total_Times:1
-File:   sh   dup   /root/.bash_profile   Total_Times:1
-File:   sh   write   /root/.bash_profile   Total_Times:1
-File:   sh   open   /root/.bashrc   Total_Times:1
-File:   sh   dup   /root/.bashrc   Total_Times:1
-File:   sh   write   /root/.bashrc   Total_Times:1
+File:   sh   7167   open   /root/.bash_profile   16:41:31.338350456   Total_Times:1
+File:   sh   7167   dup   /root/.bash_profile   16:41:31.338350456   Total_Times:1
+File:   sh   7167   write   /root/.bash_profile   16:41:31.338350456   Total_Times:1
+File:   sh   7167   open   /root/.bashrc   16:41:31.338350456   Total_Times:1
+File:   sh   7167   dup   /root/.bashrc   16:41:31.338350456   Total_Times:1
+File:   sh   7167   write   /root/.bashrc   16:41:31.338350456   Total_Times:1
+File:   dd   7167   open   /dev/zero   16:41:31.338350456   Total_Times:1
+File:   dd   7167   dup   /dev/zero   16:41:31.338350456   Total_Times:1
+File:   dd   7167   open   /var/log/syslog   16:41:31.338350456   Total_Times:1
+File:   dd   7167   dup   /var/log/syslog   16:41:31.338350456   Total_Times:1
+File:   dd   7167   read   /dev/*   16:41:31.338350456   Total_Times:50591
+File:   dd   7167   write   /var/log/syslog   16:41:31.338350456 Total_Times:50591
+File:   dd   7167   write   /dev/zero   16:41:31.338350456   Total_Times:1
