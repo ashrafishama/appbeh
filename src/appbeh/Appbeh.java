@@ -39,12 +39,12 @@ public class Appbeh extends TTPs {
         for(int i=0;i<data.size();i++){
             String temp = (String) data.get(i);
             String[] parts = temp.split("\\s+"); //number of parts in each line
+            //the following 7 lines will be repeated for each TTP
             int match = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
-            //System.err.println("Matched " + match); // working now
             if(match!=0){
-                matchUpdater(TTPmatcher, 1, match);
-                if(allPartsMatched(TTPmatcher,1)){
-                    ttpFrequency[0]+=1;
+                matchUpdater(TTPmatcher, 1, match); //1 for T1156
+                if(allPartsMatched(TTPmatcher,1)){ //checking if all subparts of T1156 are found
+                    ttpFrequency[0]+=1; //updating T1156 frequency
                 }
             }
         }
