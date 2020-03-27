@@ -12,8 +12,8 @@ public class Appbeh extends TTPs {
        ArrayList<ArrayList<Integer>> TTPmatcher = new ArrayList<ArrayList<Integer>>(); //39 entries for 39 TTPs for matching parts
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1, 2, 3))); //3 subpart for TTP T1156
        
-       //String filename = "chrome.txt";
-       String filename = "test.txt";
+       String filename = "chrome.txt";
+       //String filename = "test.txt";
        ArrayList content = fileRead(filename);
        System.out.println("Initial Frequency " + TTPfrequency[0]); //of T1156, that is why index is '0'
        parser(content,ttps,TTPfrequency,TTPmatcher);
@@ -38,12 +38,14 @@ public class Appbeh extends TTPs {
     public static void parser(ArrayList data,TTPs ttps,int[] ttpFrequency,ArrayList<ArrayList<Integer>> TTPmatcher){
         for(int i=0;i<data.size();i++){
             String temp = (String) data.get(i);
-            String[] parts = temp.split("\\s+");
+            String[] parts = temp.split("\\s+"); //number of parts in each line
             int match = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             //System.err.println("Matched " + match); // working now
-            matchUpdater(TTPmatcher, 1, match);
-            if(allPartsMatched(TTPmatcher,1)){
-                ttpFrequency[0]+=1;
+            if(match!=0){
+                matchUpdater(TTPmatcher, 1, match);
+                if(allPartsMatched(TTPmatcher,1)){
+                    ttpFrequency[0]+=1;
+                }
             }
         }
         

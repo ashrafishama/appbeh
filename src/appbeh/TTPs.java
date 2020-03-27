@@ -10,23 +10,29 @@ public class TTPs {
         //System.err.println(Arrays.toString(S));
         if(length==5){ //line containing "File:" found
             String[] filePathParts = S[3].split("/");
-            if(S[2].equals("open") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
-                    (filePathParts[filePathParts.length-1].equals(".bash_profile") || filePathParts[filePathParts.length-1].equals(".bashrc"))){
-                return 1; //subpart 1
+            if(filePathParts.length>=2){
+                if(S[2].equals("open") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
+                        (filePathParts[filePathParts.length-1].equals(".bash_profile") || filePathParts[filePathParts.length-1].equals(".bashrc"))){
+                    return 1; //subpart 1
+               }
             }
         }
         if(length==5){ //line containing "File:" found
             String[] filePathParts = S[3].split("/");
-            if(S[2].equals("dup") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
+            if(filePathParts.length>=2){
+                if(S[2].equals("dup") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
                     (filePathParts[filePathParts.length-1].equals(".bash_profile") || filePathParts[filePathParts.length-1].equals(".bashrc"))){
-                return 2; //subpart 2
+                    return 2; //subpart 2
+                }
             }
         }
         if(length==5){ //line containing "File:" found
             String[] filePathParts = S[3].split("/");
-            if(S[2].equals("write") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
+            if(filePathParts.length>=2){
+                if(S[2].equals("write") && (filePathParts[1].equals("home") || filePathParts[1].equals("root")) && 
                     (filePathParts[filePathParts.length-1].equals(".bash_profile") || filePathParts[filePathParts.length-1].equals(".bashrc"))){
-                return 3; //subpart 3
+                    return 3; //subpart 3
+                }
             }
         }
         return 0; //if no hard match found to this TTP
