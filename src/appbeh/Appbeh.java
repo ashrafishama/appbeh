@@ -50,7 +50,7 @@ public class Appbeh extends TTPs {
             String[] parts = temp.split("\\s+"); //number of parts in each line
             //the following 9 lines will be repeated for each TTP
             int prev_match_1 = 0;
-            int match_1 = ttps.T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
+            int match_1 = ttps.modified_T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             if(match_1!=0 && match_1>prev_match_1){//if the found sequence is logically after the previous matches
                 matchUpdater(TTPmatcher, 1, match_1); //1 for T1156
                 if(allPartsMatched(TTPmatcher,1)){ //checking if all subparts of T1156 are found
@@ -58,7 +58,7 @@ public class Appbeh extends TTPs {
                 }
             }
             prev_match_1 = match_1;
-            
+            /*
             //T1485
             int prev_match_2 = 0;
             int match_2 = ttps.T1148(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
@@ -94,6 +94,7 @@ public class Appbeh extends TTPs {
                 }
             }
             prev_match_4 = match_4;
+*/
         }
         
         return;
