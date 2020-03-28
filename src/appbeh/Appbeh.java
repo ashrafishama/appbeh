@@ -14,6 +14,7 @@ public class Appbeh extends TTPs {
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2))); //2 subparts for TTP T1485-5, index 1
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6))); //6 subparts for TTP T1083-4, index 2
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2,3,4))); //4 subparts for TTP T1030, index 3
+       TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2,3))); //3 subparts for TTP T1158, index 4
        //String filename = "chrome.txt";
        String filename = "test.txt";
        ArrayList content = fileRead(filename);
@@ -21,12 +22,14 @@ public class Appbeh extends TTPs {
        System.out.println("Initial Frequency of T1485-5 " + TTPfrequency[1]); //of T1485-5, that is why index is '1'
        System.out.println("Initial Frequency of T1083-4 " + TTPfrequency[2]); //of T1083-4, that is why index is '2'
        System.out.println("Initial Frequency of T1030 " + TTPfrequency[3]); //of T1030, that is why index is '3'
+       System.out.println("Initial Frequency of T1158 " + TTPfrequency[4]); //of T1158, that is why index is '4'
        
        parser(content,ttps,TTPfrequency,TTPmatcher);
        System.out.println("Final Frequency of T1156 " + TTPfrequency[0]); //of T1156, that is why index is '1'
        System.out.println("Final Frequency of T1485-5 " + TTPfrequency[1]); //of T1485-5, that is why index is '1'
        System.out.println("Final Frequency of T1083-4 " + TTPfrequency[2]); //of T1083-4, that is why index is '2'
        System.out.println("Final Frequency of T1030 " + TTPfrequency[3]); //of T1030, that is why index is '3'
+       System.out.println("Final Frequency of T1158 " + TTPfrequency[4]); //of T1158, that is why index is '4'
        
     }
     
@@ -42,14 +45,13 @@ public class Appbeh extends TTPs {
         bufReader.close();
         return listOfLines;
     }
-    
     //line parser (with delemeter)
     public static void parser(ArrayList data,TTPs ttps,int[] ttpFrequency,ArrayList<ArrayList<Integer>> TTPmatcher){
+        int prev_match_1=0, prev_match_2=0, prev_match_3=0, prev_match_4=0, prev_match_5=0;
         for(int i=0;i<data.size();i++){
             String temp = (String) data.get(i);
             String[] parts = temp.split("\\s+"); //number of parts in each line
             //the following 9 lines will be repeated for each TTP
-            int prev_match_1 = 0;
             int match_1 = ttps.modified_T1156(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             if(match_1!=0 && match_1>prev_match_1){//if the found sequence is logically after the previous matches
                 matchUpdater(TTPmatcher, 1, match_1); //1 for T1156
@@ -58,9 +60,8 @@ public class Appbeh extends TTPs {
                 }
             }
             prev_match_1 = match_1;
-            /*
+            
             //T1485
-            int prev_match_2 = 0;
             int match_2 = ttps.T1148(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             //System.err.println("Match 2 " + match_2); //working
             if(match_2!=0 && match_2>prev_match_2){//if the found sequence is logically after the previous matches
@@ -72,7 +73,6 @@ public class Appbeh extends TTPs {
             prev_match_2 = match_2;
             
             //T1083
-            int prev_match_3 = 0;
             int match_3 = ttps.T1083(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             //System.err.println("Match 2 " + match_2); //working
             if(match_3!=0 && match_3>prev_match_3){//if the found sequence is logically after the previous matches
@@ -84,7 +84,6 @@ public class Appbeh extends TTPs {
             prev_match_3 = match_3;
             
             //T1030
-            int prev_match_4 = 0;
             int match_4 = ttps.T1030(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
             //System.err.println("Match 2 " + match_2); //working
             if(match_4!=0 && match_4>prev_match_4){//if the found sequence is logically after the previous matches
@@ -94,7 +93,16 @@ public class Appbeh extends TTPs {
                 }
             }
             prev_match_4 = match_4;
-*/
+            
+            int match_5 = ttps.T1158(parts,parts.length); //have to call this function for each TTP, against each line, returns a #
+            //System.err.println("Match 2 " + match_2); //working
+            if(match_5!=0 && match_5>prev_match_5){//if the found sequence is logically after the previous matches
+                matchUpdater(TTPmatcher, 5, match_5); //4 for T1030
+                if(allPartsMatched(TTPmatcher,5)){ //checking if all subparts of T1030 are found
+                    ttpFrequency[4]+=1; //updating T1030 frequency
+                }
+            }
+            prev_match_5 = match_5;
         }
         
         return;
@@ -137,6 +145,14 @@ public class Appbeh extends TTPs {
                 ttpMatcher.get(TTPNo-1).set(1,2);
                 ttpMatcher.get(TTPNo-1).set(2,3);
                 ttpMatcher.get(TTPNo-1).set(3,4);
+                return true; //all subparts matched for some TTP, for TTPNo == 3, T1083-4 it is
+            }        
+        }
+        else if(TTPNo==5){
+            if (Collections.frequency(ttpMatcher.get(TTPNo-1), 0) == ttpMatcher.get(TTPNo-1).size()){ //TTPNo-1 is the index in the AL
+                ttpMatcher.get(TTPNo-1).set(0,1);
+                ttpMatcher.get(TTPNo-1).set(1,2);
+                ttpMatcher.get(TTPNo-1).set(2,3);
                 return true; //all subparts matched for some TTP, for TTPNo == 3, T1083-4 it is
             }        
         }

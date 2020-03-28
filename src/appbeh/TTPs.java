@@ -7,21 +7,56 @@ import java.util.regex.Pattern;
 /*
   @author ashrafi
  */
-public class TTPs {
-    //public String line;
+public class TTPs {   
     //variables for aid in 'pattern checking'
     public static int[] TTP1083 = new int[6];
     public static int[] TTP1030 = new int[2];
     
-    //
+    //T1156
     public static String dirname_T1156 = "(/root|/home).*";
     public static String basename_T1156 = "(.*rc|.*sh_profile)";
+    
+    //T1158
+    public static String dirname_T1158 = "(/var/tmp/)\\..*"; //successfully done
+    public static String basename_T1158 = "\\..*"; //successfully done
+    
     
     TTPs(){
         Arrays.fill(TTP1083,1);
         Arrays.fill(TTP1030,1);
     }
     
+    public static int T1158(String S[],int length){
+        File file = new File(S[4]);
+        String dirname = file.getParent();
+        String basename = file.getName();
+        dirname = separatorsToSystem(dirname);
+        boolean b1 =false;
+        if(dirname!=null){
+            b1 = Pattern.matches(dirname_T1158, dirname);
+        }
+        boolean b2 = false;
+        if(basename!=null){
+            b2 = Pattern.matches(basename_T1158, basename);
+            System.out.println(basename);
+        }
+        if(length==7){
+            if(S[3].equals("open") && b1 && b2){
+                System.out.println("match");
+                return 1;
+            }
+            if(S[3].equals("dup") && b1 && b2){
+                System.out.println("match");
+                return 2;
+            }
+            if(S[3].equals("write") && b1 && b2){
+                System.out.println("match");
+                return 3;
+            }
+        }
+        
+        return 0;
+    }
     public static int modified_T1156(String S[],int length){
         File file = new File(S[4]);
         String dirname = file.getParent();
@@ -30,12 +65,10 @@ public class TTPs {
         boolean b1 =false;
         if(dirname!=null){
             b1 = Pattern.matches(dirname_T1156, dirname);
-            System.out.println(dirname);
         }
         boolean b2 = false;
         if(basename!=null){
             b2 = Pattern.matches(basename_T1156, basename);
-            System.out.println(basename);
         }
         if(length==7){
             if(S[3].equals("open") && b1 && b2){
@@ -50,7 +83,6 @@ public class TTPs {
         }
         return 0;
     }
-    
     
     public static int T1156(String S[],int length){ //T1156-1 & T1156-2 (Persistence)
         //it has three subparts
