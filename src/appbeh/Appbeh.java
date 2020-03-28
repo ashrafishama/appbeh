@@ -16,7 +16,12 @@ public class Appbeh extends TTPs {
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2,3,4))); //4 subparts for TTP T1030, index 3
        TTPmatcher.add(new ArrayList<Integer>(Arrays.asList(1,2,3))); //3 subparts for TTP T1158, index 4
        //String filename = "chrome.txt";
-       String filename = "test.txt";
+       //String filename = "firefox.txt";
+       //String filename = "python.txt";
+       //String filename = "mysql.txt";
+       String filename = "apache2.txt";
+       
+       //String filename = "test.txt";
        ArrayList content = fileRead(filename);
        System.out.println("Initial Frequency of T1156 " + TTPfrequency[0]); //of T1156, that is why index is '0'
        System.out.println("Initial Frequency of T1485-5 " + TTPfrequency[1]); //of T1485-5, that is why index is '1'

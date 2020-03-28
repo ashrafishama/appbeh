@@ -20,6 +20,10 @@ public class TTPs {
     public static String dirname_T1158 = "(/var/tmp/)\\..*"; //successfully done
     public static String basename_T1158 = "\\..*"; //successfully done
     
+    //T1040-1
+    
+    //T1081
+    
     
     TTPs(){
         Arrays.fill(TTP1083,1);
@@ -38,19 +42,15 @@ public class TTPs {
         boolean b2 = false;
         if(basename!=null){
             b2 = Pattern.matches(basename_T1158, basename);
-            System.out.println(basename);
         }
         if(length==7){
             if(S[3].equals("open") && b1 && b2){
-                System.out.println("match");
                 return 1;
             }
             if(S[3].equals("dup") && b1 && b2){
-                System.out.println("match");
                 return 2;
             }
             if(S[3].equals("write") && b1 && b2){
-                System.out.println("match");
                 return 3;
             }
         }
@@ -224,8 +224,10 @@ public class TTPs {
          //first subpart
          if(length==7 && S[0].equals("File:")){
              String[] filePathParts = S[4].split("/");
-             if(S[3].equals("read") && filePathParts[1].equals("proc") && filePathParts[2].equals("filesystems")){
-                 return 1;
+             if(filePathParts.length>=2){
+                 if(S[3].equals("read") && filePathParts[1].equals("proc") && filePathParts[2].equals("filesystems")){
+                    return 1;
+                 }
              }
 
          }
@@ -238,17 +240,21 @@ public class TTPs {
          //third subpart
          if(length==7 && TTP1030[0]==1 && S[0].equals("File:")){
              String[] filePathParts = S[4].split("/");
-             if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
-                 TTP1030[0] = 0;
-                 return 3;
+             if(filePathParts.length>=2){
+                if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
+                    TTP1030[0] = 0;
+                    return 3;
+                }
              }
          }
          //fourth subpart
          if(length==7 && TTP1030[1]==1 && S[0].equals("File:")){
              String[] filePathParts = S[4].split("/");
-             if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
-                 Arrays.fill(TTP1030,1);
-                 return 4;
+             if(filePathParts.length>=2){
+                if(S[3].equals("dup") && filePathParts[1].equals("tmp")){
+                    Arrays.fill(TTP1030,1);
+                    return 4;
+                }
              }
          }
          

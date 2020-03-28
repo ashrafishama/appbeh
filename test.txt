@@ -24,3 +24,5 @@ File: split   7167 dup /tmp/victim-whole-file   16:41:31.338350456 Total_Times:1
 File: bash   7167 open /var/tmp/.hidden-directory/.hidden-file   16:41:31.338350456 Total_Times:1
 File: bash   7167 dup /var/tmp/.hidden-directory/.hidden-file   16:41:31.338350456 Total_Times:1
 File: bash   7167 write /var/tmp/.hidden-directory/.hidden-file   16:41:31.338350456 Total_Times:1
+File:   grep   7167 openat   /home/syssec/attack/test/test.txt   16:41:31.338350456   Total_Times:1
+File:   grep   7167 read   /home/syssec/attack/test/test.txt   16:41:31.338350456   Total_Times:2
