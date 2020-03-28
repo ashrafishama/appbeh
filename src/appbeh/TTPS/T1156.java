@@ -41,7 +41,8 @@ public class T1156 extends TTP {
 		Pattern p2 = Pattern.compile(pattern2);  
 		Matcher m2 = p2.matcher(basename);  
 		
-		if(m1.matches() && m2.matches()) return 1;
+		if((oneLine.get(3).equals("open")||oneLine.get(3).equals("dup")||oneLine.get(3).equals("write"))
+				&& m1.matches() && m2.matches()) return 1;
 		return 0;
 	}
 
