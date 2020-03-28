@@ -1,0 +1,28 @@
+    //T1081-1
+    public static String dirname_T1081 = "(/home|/root).*"; //successfully done
+    public static String basename_T1081 = "(.*)"; //successfully done
+    
+    public static int T1081(String S[],int length){
+        File file = new File(S[4]);
+        String dirname = file.getParent();
+        String basename = file.getName();
+        dirname = separatorsToSystem(dirname);
+        boolean b1 =false;
+        boolean b2 = false;
+        if(dirname!=null){
+            b1 = Pattern.matches(dirname_T1081, dirname);
+        }
+        if(basename!=null){
+            b2 = Pattern.matches(basename_T1081, basename);
+        }
+        if(length==7){
+            if(S[3].equals("openat") && b1 && b2){
+                return 1;
+            }
+            if(S[3].equals("read") && b1 && b2){
+                return 2;
+            }
+        }
+        
+        return 0;
+    }
