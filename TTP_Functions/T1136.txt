@@ -1,0 +1,15 @@
+ public static int T1136(String S[],int length){
+        if(S[0].equals("Network:")){
+            if(S[3].equals("unix") && S[4].equals("sendto")){
+                return 1;
+            }
+            if(S[3].equals("netlink") && S[4].equals("sendto")){
+                return 2;
+            }
+            if(S[3].equals("netlink") && S[4].equals("recvfrom")){
+                return 3;
+            }
+        }
+        
+        return 0;
+    }
